@@ -8,6 +8,7 @@ export default {
     extend: {
       colors: {
         textColor:"#3A3C3F", 
+        primaryColor:"#FE4711",
       },
       spacing: {
         pageXL:"80px",
