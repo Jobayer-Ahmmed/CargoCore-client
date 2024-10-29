@@ -10,7 +10,8 @@ export default {
     },
     extend: {
       spacing:{
-        pXL:"80px",
+        pageXL:"80px",
+        
       }
     },
   },
