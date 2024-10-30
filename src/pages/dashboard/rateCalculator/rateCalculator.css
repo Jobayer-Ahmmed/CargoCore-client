@@ -1,0 +1,10 @@
+.custom-select {
+    appearance: none; /* Remove default arrow */
+    background: url('../../../assets/icons/down-arrow.png') no-repeat left center;
+    background-size: 1.5em; /* Adjust size of icon */
+    padding-left: 2em; /* Add space for icon */
+    border: 1px solid #ccc; /* Optional: Style border */
+    border-radius: 4px; /* Optional: Border radius */
+    height: 2.5em; /* Optional: Adjust height */
+  }
+  

@@ -4,6 +4,7 @@ import {
 
 import Dashboard from "../pages/dashboard/dashboard/Dashboard";
 import DashBoardLayout from "../layout/DashBoardLayout";
+import RateCalculator from "../pages/dashboard/rateCalculator/RateCalculator";
 
 
 
@@ -15,6 +16,10 @@ const router = createBrowserRouter ([
             {
                 path:'/',
                 element:<Dashboard/>
+            },
+            {
+                path: '/rate-calculator',
+                element: <RateCalculator/>
             }
         ]
     }
