@@ -9,6 +9,7 @@ export default {
       colors: {
         textColor:"#3A3C3F", 
         primaryColor:"#FE4711",
+        borderColor: "#E5E7E8",
       },
       spacing: {
         pageXL:"80px",
