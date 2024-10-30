@@ -5,7 +5,7 @@ const DashBoardLayout = () => {
   return (
     <div>
       {/* here will be navbar */}
-      <div>
+      <div className="flex">
         <Sidebar />
         <Outlet />
       </div>
