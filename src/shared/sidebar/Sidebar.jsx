@@ -1,10 +1,19 @@
 import { NavLink } from "react-router-dom";
 import "./sidebar.css";
 import { IoIosArrowDown } from "react-icons/io";
+import { useRef } from "react";
+
+
+
+
 
 const Sidebar = () => {
+  const loadRef = useRef(null)
+  const handleLoad=()=>{
+    loadRef.current.classList.toggle("hidden")
+  }
   return (
-    <aside className="w-[260px] h-[100vh] bg-cyan-700 p-5 font-medium">
+    <aside className="w-[260px] h-[100vh] p-5 font-medium">
       <div className="h-full flex flex-col justify-between">
         <ul className="flex flex-col">
           <li>
@@ -34,7 +43,7 @@ const Sidebar = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to={``} className="first-navlink">
+            <NavLink onClick={handleLoad} to={``} className="first-navlink" aria-expanded={!loadRef.current?.classList.contains("hidden")}>
               <p>
                 {" "}
                 <svg
@@ -64,6 +73,12 @@ const Sidebar = () => {
               </p>
               <IoIosArrowDown />
             </NavLink>
+            <ul ref={loadRef} className="ml-10 mt-1 mb-3 flex flex-col gap-3">
+                <li><NavLink to="#" className={({isActive})=>isActive?"text-primaryColor":""}>View Loads</NavLink> </li>
+                <li><NavLink to="/a" >Search Loads</NavLink> </li>
+                <li><NavLink to="/b">Build a Load</NavLink> </li>
+                <li><NavLink to="/c">Load Templates</NavLink> </li>
+            </ul>
           </li>
           <li>
             <NavLink to={``} className="first-navlink">
