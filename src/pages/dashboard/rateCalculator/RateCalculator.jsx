@@ -2,7 +2,8 @@ import "./rateCalculator.css";
 import { IoIosArrowDown } from "react-icons/io";
 import { RxCross2 } from "react-icons/rx";
 import { FiPlus } from "react-icons/fi";
-import { BsArrowReturnLeft } from "react-icons/bs";
+import { BsArrowReturnLeft, BsArrowClockwise } from "react-icons/bs";
+import rateGraph from "../../../assets/images/rate_graph.png";
 
 const RateCalculator = () => {
   return (
@@ -82,6 +83,65 @@ const RateCalculator = () => {
         <div className="mt-8 flex justify-end">
           <button className="flex gap-2 items-center text-white bg-primaryColor px-6 py-3 rounded-xl">
             <BsArrowReturnLeft className="text-lg" /> <span>Gate Rate</span>
+          </button>
+        </div>
+      </div>
+      <div className=" mt-5 p-5 border-2 border-borderColor rounded-2xl">
+        <p className="flex gap-2 items-center">
+          <IoIosArrowDown />{" "}
+          <span className="text-xl font-semibold">
+            Commission Report Criteria
+          </span>
+        </p>
+        <div className="flex justify-between">
+          <div>
+            <h3 className="font-medium  my-6">Truck Type</h3>
+            <div className="flex flex-col gap-6">
+              <div className=" ">
+                <img src={rateGraph} alt="" />
+              </div>
+              <div className=" ">
+                <img src={rateGraph} alt="" />
+              </div>
+              <div className=" ">
+                <img src={rateGraph} alt="" />
+              </div>
+            </div>
+          </div>
+          <div>
+            <h3 className="font-medium  my-6">Truck Type</h3>
+            <div className="flex flex-col gap-6">
+              <div className="flex items-center gap-10">
+                <p>Payroll Date Range</p>
+                <input
+                  type="text"
+                  value="1.98"
+                  className="text-[#6C757D] outline-none px-5 py-3 border-2 border-borderColor rounded-xl "
+                />
+              </div>
+              <div className="flex items-center gap-10">
+                <p>Payroll Date Range</p>
+                <input
+                  type="text"
+                  value="1.98"
+                  className="text-[#6C757D] outline-none px-5 py-3 border-2 border-borderColor rounded-xl "
+                />
+              </div>
+              <div className="flex items-center gap-10">
+                <p>Payroll Date Range</p>
+                <input
+                  type="text"
+                  value="1.98"
+                  className="text-[#6C757D] outline-none px-5 py-3 border-2 border-borderColor rounded-xl "
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-8 flex justify-center items-center text-white">
+          <button className="flex items-center gap-2 bg-primaryColor px-6 py-3 rounded-xl">
+            <BsArrowClockwise /> <span>ojojojoj</span>
           </button>
         </div>
       </div>
