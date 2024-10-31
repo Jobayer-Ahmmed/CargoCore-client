@@ -1,6 +1,7 @@
 import { PiArrowUpRightThin } from "react-icons/pi";
 import chart from "../../../assets/images/chart.png";
 import WorldMap from "../../../shared/map/WorldMap";
+import MyChart from "./MyChart";
 
 const Dashboard = () => {
   return (
@@ -303,7 +304,8 @@ const Dashboard = () => {
               Avg Delivery Time (hours) Route (km)
             </h3>
           </div>
-          <img src={chart} alt="" />
+          {/* here will be chart */}
+          <MyChart/>
         </div>
         <div className="relative w-2/5 border-2 border-borderColor rounded-2xl">
           <div className="absolute top-4 left-3 z-10">
