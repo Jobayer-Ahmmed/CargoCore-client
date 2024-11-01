@@ -7,13 +7,26 @@ export default {
   theme: {
     extend: {
       colors: {
-        textColor: "#3A3C3F", // Custom color for text
+        textColor:"#3A3C3F", 
+        primaryColor:"#FE4711",
+        borderColor: "#E5E7E8",
       },
       spacing: {
-        pXL: "80px", // Custom spacing
+        pageXL:"80px",
       },
+
+
+      fontFamily: {
+        myCour: "Courgette"
+      }
+
+
+
+
     },
   },
-  plugins: [],
-};
-
+  plugins: [require("daisyui")],
+  daisyui: {
+    themes: ["light", "dark"],
+  },
+}
