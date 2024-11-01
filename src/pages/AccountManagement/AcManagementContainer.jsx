@@ -14,7 +14,7 @@ export default function AcManagementContainer() {
   const [tabIndex, setTabIndex] = useState(0);
 
   return (
-    <section className="pr-5">
+    <section className="pr-5 ">
       <header>
         <ReconcileHeader tabIndex={tabIndex} />
       </header>

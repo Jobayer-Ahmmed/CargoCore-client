@@ -34,7 +34,7 @@ const butttons = [
 
 export default function CommissionsContainer() {
   return (
-    <section className="pr-5 relative">
+    <section className="pr-5 relative     ">
       <header className="my-5">
         <CommissionHeader />
       </header>

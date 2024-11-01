@@ -1,10 +1,11 @@
 import { PiArrowUpRightThin } from "react-icons/pi";
 import chart from "../../../assets/images/chart.png";
-import map from "../../../assets/images/map.png";
+import WorldMap from "../../../shared/map/WorldMap";
+import MyChart from "./MyChart";
 
 const Dashboard = () => {
   return (
-    <div className="w-full m-5">
+    <div className="w-full my-5 pr-5">
       <div className="w-full flex justify-between items-center">
         <div className="text-xl font-semibold">
           <p>Overview</p>
@@ -303,18 +304,20 @@ const Dashboard = () => {
               Avg Delivery Time (hours) Route (km)
             </h3>
           </div>
-          <img src={chart} alt="" />
+          {/* here will be chart */}
+          <MyChart/>
         </div>
         <div className="relative w-2/5 border-2 border-borderColor rounded-2xl">
-          <div className="absolute top-4 left-3">
+          <div className="absolute top-4 left-3 z-10">
             <h3 className="text-lg font-semibold  mb-2">
               Track Recent Shipment
             </h3>
-            <select className="border-none outline-none" name="" id="">
+            <select className="border-none outline-none bg-transparent" name="" id="">
               <option value="In Transit">In Transit</option>
             </select>
           </div>
-          <img className="w-full" src={map} alt="" />
+          {/* here will be map */}
+          <WorldMap />
         </div>
       </div>
     </div>

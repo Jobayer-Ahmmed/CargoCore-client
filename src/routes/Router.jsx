@@ -10,6 +10,7 @@ import LoadManagementContainer from "../pages/LoadManagement/LoadManagementConta
 
 import Dashboard from "../pages/dashboard/dashboard/Dashboard";
 import DashBoardLayout from "../layout/DashBoardLayout";
+import RateCalculator from "../pages/dashboard/rateCalculator/RateCalculator";
 
 
 
@@ -36,7 +37,11 @@ const router = createBrowserRouter ([
            {
             path:'/load-management',
             element:<LoadManagementContainer/>
-           }
+           },
+            {
+                path: '/rate-calculator',
+                element: <RateCalculator/>
+            }
         ]
     }
 ])

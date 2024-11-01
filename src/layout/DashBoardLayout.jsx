@@ -9,9 +9,11 @@ const DashBoardLayout = () => {
       <Nav/>
     </nav>
       {/* here will be navbar */}
-      <div className="flex">
+      <div className="flex gap-[23px]">
         <Sidebar />
+        <div className="w-[calc(100%-283px)]" >
         <Outlet />
+        </div>
       </div>
     </div>
   )

@@ -26,13 +26,13 @@ export default function PaymentInvoiceTab() {
       </Tabs>
 
       <div className="flex justify-between mt-[22.29px] ">
-        <div className=" max-w-[500px]">
+        <div className="w-[41%]">
           <ButtonTop />
           <LeftFirstPart />
           <LeftSecondPart />
         </div>
 
-        <div className="w-[503.419px] bg-[#FFF] p-[29.613px]">
+        <div className=" bg-[#FFF] p-[29.613px]">
           <div className="pb-[29.61px]">
             <RightTop />
           </div>

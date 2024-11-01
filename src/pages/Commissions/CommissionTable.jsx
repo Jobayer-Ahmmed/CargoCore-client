@@ -25,13 +25,13 @@ export default function CommissionTable() {
 
   return (
     <>
-      <section className="container  mx-auto">
+      <section className="">
         <div className="flex flex-col">
           <div className=" overflow-x-auto ">
-            <div className="inline-block min-w-full py-2 align-middle ">
+            <div className="inline-block  py-2 align-middle ">
               <div className="overflow-hidden border-t border-b border-[#DFE1E6] ">
-                <table className="min-w-full divide-y  divide-[#DFE1E6]">
-                  <thead className=" text-[#414449] text-sm font-semibold tracking-[0.28px]">
+                <table className=" divide-y   divide-[#DFE1E6]">
+                  <thead className=" text-[#414449]  text-sm font-semibold tracking-[0.28px]">
                     <tr>
                       <th
                         scope="col"

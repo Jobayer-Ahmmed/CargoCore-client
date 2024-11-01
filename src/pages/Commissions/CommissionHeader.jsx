@@ -1,7 +1,7 @@
 export default function CommissionHeader() {
   return (
     <>
-      <section className="flex items-center   gap-5 " >
+      <section className="flex items-center   gap-5 ">
         {/* left side  */}
         <div className="bg-[#FFF]   rounded-[16px] border space-y-6 p-5 pr-4 border-[#E5E7E8] ">
           {/* ttile-- */}
@@ -10,7 +10,7 @@ export default function CommissionHeader() {
           </h2>
 
           {/* info and find-- */}
-          <div className="flex items-center gap-[11px]" >
+          <div className="flex items-center gap-[11px]">
             {/* left --- */}
             <div className="flex items-center gap-6">
               {/* title-- */}
@@ -88,24 +88,39 @@ export default function CommissionHeader() {
 
         {/* right side -- */}
 
-        <div className="py-5 px-[15px] flex-grow bg-[#FFF] rounded-[16px] border border-[#E5E7E8] space-y-[14px]" >
-                {/* title and price-- */}
-                <div className="" >
-                    <h4 className="text-[16px] font-semibold tracking-[0.32px] text-textColor" >Commission Summary</h4>
-                    <p className="text-[28px] font-bold -tracking-[0.56px] text-textColor "  >$23,450</p>
-                </div>
+        <div className="py-5 px-[15px]  flex-grow bg-[#FFF] rounded-[16px] border border-[#E5E7E8] space-y-[14px]">
+          {/* title and price-- */}
+          <div className="">
+            <h4 className="text-[16px] font-semibold tracking-[0.32px] text-textColor">
+              Commission Summary
+            </h4>
+            <p className="text-[28px] font-bold -tracking-[0.56px] text-textColor ">
+              $23,450
+            </p>
+          </div>
 
-                {/* bottom-- */}
-                <div className="flex items-center justify-between" >
-                    <p className="font-semibold text-base text-[#808990]" >in 1 Month</p>
-                    <button className="text-[13px] font-semibold text-[#15994E] flex items-center gap-1" >
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M11.0833 11.0833L3.5 3.5M3.5 3.5V10.78M3.5 3.5H10.78" stroke="#15994E" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
-</svg>
-<span>16%</span>
-
-                    </button>
-                </div>
+          {/* bottom-- */}
+          <div className="flex items-center justify-between">
+            <p className="font-semibold text-base text-[#808990]">in 1 Month</p>
+            <button className="text-[13px] font-semibold text-[#15994E] flex items-center gap-1">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 14 14"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M11.0833 11.0833L3.5 3.5M3.5 3.5V10.78M3.5 3.5H10.78"
+                  stroke="#15994E"
+                  strokeWidth="1.2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              <span>16%</span>
+            </button>
+          </div>
         </div>
       </section>
     </>
