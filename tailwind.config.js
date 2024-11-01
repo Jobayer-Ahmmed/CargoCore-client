@@ -5,15 +5,15 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    colors:{
-      textColor:"#3A3C3F",
-    },
     extend: {
-      spacing:{
-        pXL:"80px",
-      }
+      colors: {
+        textColor: "#3A3C3F", // Custom color for text
+      },
+      spacing: {
+        pXL: "80px", // Custom spacing
+      },
     },
   },
   plugins: [],
-}
+};
 
