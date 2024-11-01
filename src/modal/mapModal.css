@@ -1,0 +1,25 @@
+.button-group {
+    display: flex;
+    background-color: #e4e7ea; /* Light gray background */
+    padding: 8px;
+    border-radius: 10px;
+    align-items: center;
+  }
+  
+  .button {
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: transparent;
+    color: #6c757d; /* Default gray color */
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .button.active {
+    background-color: #ff5722; /* Orange color for active button */
+    color: white;
+  }
+  
