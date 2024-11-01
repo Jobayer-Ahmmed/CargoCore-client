@@ -13,7 +13,7 @@ const Sidebar = () => {
     loadRef.current.classList.toggle("hidden")
   }
   return (
-    <aside className="w-[260px] h-[100vh] p-5 font-medium">
+    <aside className="w-[260px] h-[100vh] border-r border-[#E5E7E8] p-5 font-medium">
       <div className="h-full flex flex-col justify-between">
         <ul className="flex flex-col">
           <li>

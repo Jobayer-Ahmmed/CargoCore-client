@@ -5,7 +5,7 @@ import MyChart from "./MyChart";
 
 const Dashboard = () => {
   return (
-    <div className="w-full m-5">
+    <div className="w-full my-5 pr-5">
       <div className="w-full flex justify-between items-center">
         <div className="text-xl font-semibold">
           <p>Overview</p>

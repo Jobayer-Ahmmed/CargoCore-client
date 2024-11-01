@@ -8,7 +8,7 @@ import MapModal from "../../../modal/MapModal";
 
 const RateCalculator = () => {
   return (
-    <div className="w-full m-5">
+    <div className="w-full my-5 pr-5">
       <div className="p-5 border-2 border-borderColor rounded-2xl">
         <p className="flex gap-2 items-center">
           <IoIosArrowDown />{" "}
