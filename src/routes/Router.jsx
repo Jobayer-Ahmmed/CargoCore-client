@@ -11,6 +11,7 @@ import LoadManagementContainer from "../pages/LoadManagement/LoadManagementConta
 import Dashboard from "../pages/dashboard/dashboard/Dashboard";
 import DashBoardLayout from "../layout/DashBoardLayout";
 import RateCalculator from "../pages/dashboard/rateCalculator/RateCalculator";
+import AccManagementInvoice from "../pages/AccountManagement/AccManagementInvoice";
 
 
 
@@ -25,12 +26,16 @@ const router = createBrowserRouter ([
             },
             //accounts management route start  ---
             {
-                path:'/accounting',
+                path:'/account',
                 element:<AcManagementContainer/>
+            },
+            {
+                path:'/acc-invoice',
+                element:<AccManagementInvoice/>
             },
            // Commission route--
            {
-            path:'/commission',
+            path:'/commissions',
             element:<CommissionsContainer/>
            },
            //Load management ==

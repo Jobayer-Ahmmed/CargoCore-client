@@ -8,24 +8,26 @@ import "./tab.css";
 import InvoiceCard from "./Invoice/InvoiceCard";
 import InvoiceTable from "./Invoice/invoiceTable";
 import PaymentInvoiceTab from "./Invoice/PaymentInvoice/PaymentInvoiceTab";
+import { Helmet } from "react-helmet-async";
 
 
 export default function AcManagementContainer() {
   const [tabIndex, setTabIndex] = useState(0);
 
   return (
-    <section className="pr-5 ">
+    <>
+    <Helmet>
+      <title>Account | Cargo-Core</title>
+    </Helmet>
+    <section className="pr-5 mb-5">
       <header>
         <ReconcileHeader tabIndex={tabIndex} />
       </header>
-
-      <PaymentInvoiceTab/>
-
      
-      {/* <div>{tabIndex === 0 && <InvoiceCard />}</div>
+      <div>{tabIndex === 0 && <InvoiceCard />}</div>
 
       <Tabs defaultIndex={0} onSelect={(index) => setTabIndex(index)}>
-        <main className="border border-[#E5E7E8] bg-[#FFF] rounded-[16px]">
+        <main className="border  border-[#E5E7E8] bg-[#FFF] rounded-[16px]">
          
           <div className="flex items-center py-5 justify-between px-4">
           
@@ -76,7 +78,8 @@ export default function AcManagementContainer() {
           
           </TabPanel>
         </main>
-      </Tabs> */}
+      </Tabs>
     </section>
+    </>
   );
 }

@@ -2,10 +2,10 @@ import img1 from "../../assets/loadAssests/dollar-symbol.svg"
 import img2 from "../../assets/loadAssests/cardboard-box.svg"
 import img3 from "../../assets/loadAssests/forbidden.svg"
 
-export default function LoadModal() {
+export default function LoadModal({setCheckedIndex}) {
   return (
     <>
-      <div className="  flex justify-center">
+      <div className="  flex justify-center items-center ">
         <div aria-labelledby="modal-title" role="dialog" aria-modal="true">
           <div className="flex items-end  justify-center  px-4 pt-4 pb-20 text-center sm:block sm:p-0">
             <div
@@ -19,7 +19,7 @@ export default function LoadModal() {
                 <h2 className="text-base font-normal text-[#414449]  whitespace-nowrap">
                   Load #10045 Shortcouts
                 </h2>
-                <button>
+                <button onClick={() => setCheckedIndex(null)} >
                   <svg
                     width="13"
                     height="12"

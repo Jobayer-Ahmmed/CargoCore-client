@@ -5,10 +5,15 @@ import { FiPlus } from "react-icons/fi";
 import { BsArrowReturnLeft, BsArrowClockwise } from "react-icons/bs";
 import rateGraph from "../../../assets/images/rate_graph.png";
 import MapModal from "../../../modal/MapModal";
+import { Helmet } from "react-helmet-async";
 
 const RateCalculator = () => {
   return (
-    <div className="w-full my-5 pr-5">
+    <>
+    <Helmet>
+      <title>Rate-Calculator | Cargo-Core</title>
+    </Helmet>
+        <div className="w-full my-5 pr-5">
       <div className="p-5 border-2 border-borderColor rounded-2xl">
         <p className="flex gap-2 items-center">
           <IoIosArrowDown />{" "}
@@ -151,6 +156,7 @@ const RateCalculator = () => {
       {/* have to delete modal */}
       <MapModal/>
     </div>
+    </>
   );
 };
 

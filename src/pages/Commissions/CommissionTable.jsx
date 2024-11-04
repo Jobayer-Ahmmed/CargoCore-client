@@ -13,10 +13,9 @@ const headItem = [
   "Customer",
 ];
 
-export default function CommissionTable() {
+export default function CommissionTable({setCheckedIndex, checkedIndex}) {
   const [tData, setTdata] = useState([]);
-
-
+  
   useEffect(() => {
     fetch("/commisssion.json")
       .then((res) => res.json())
@@ -97,13 +96,16 @@ export default function CommissionTable() {
                     </tr>
                   </thead>
                   <tbody className=" divide-y tracking-[0.28px] divide-[#DFE1E6] text-sm font-normal text-[#414449]  ">
-                    {tData?.map((data, idx) => (
-                      <tr key={idx}>
+                    {tData?.map((data, idx ) => (
+                      <tr key={idx + 1} className={`${data.loadID === checkedIndex && 'bg-[#F9E8E3]'}`} >
                         <td className="px-4 py-4  whitespace-nowrap">
                           <div className="inline-flex  gap-x-3">
                             <input
+                            style={{accentColor: '#FE4711'}}
+                            checked={checkedIndex === data.loadID}
+                            onChange={() => setCheckedIndex(checkedIndex ? null : data.loadID)}
                               type="checkbox"
-                              className={`text-[#FE4711] block border-[1.017px] rounded-[ 4.069px] w-4 h-4 bg-[#FFF]   border-[#DFE1E6]`}
+                              className={`  block border-[1.017px] rounded-[ 4.069px] w-4 h-4   border-[#DFE1E6]`}
                             />
 
                             <span>{data.loadID}</span>

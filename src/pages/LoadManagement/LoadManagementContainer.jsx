@@ -3,10 +3,28 @@ import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 
 import searchIcon from "../../assets/navAssests/MagnifyingGlass.svg";
 import LoadTable from "./LoadTable";
+import { useEffect, useState } from "react";
+import LoadModal from "./LoadModal";
+import { Helmet } from "react-helmet-async";
 
 export default function LoadManagementContainer() {
+  // const [modal, setModal] = useState(true);
+  const [checkedIndex, setCheckedIndex] = useState(null);
+ 
+
+  useEffect(() => {
+    if (checkedIndex) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+  }, [checkedIndex]);
   return (
-    <section className="pr-5">
+   <>
+   <Helmet>
+    <title>Load | Cargo-Core</title>
+   </Helmet>
+     <section className="pr-5 relative mb-5 ">
       <header>
         <LoadHeader />
       </header>
@@ -132,7 +150,7 @@ export default function LoadManagementContainer() {
             </div>
           </div>
           <TabPanel>
-            <LoadTable />
+            <LoadTable  setCheckedIndex={setCheckedIndex} checkedIndex={checkedIndex} />
           </TabPanel>
           <TabPanel>
             <LoadTable />
@@ -148,6 +166,11 @@ export default function LoadManagementContainer() {
           </TabPanel>
         </main>
       </Tabs>
+
+      <div className={`fixed ${checkedIndex ? "flex":"hidden" } items-center justify-center bg-red-800/20 inset-0`}>
+        <LoadModal setCheckedIndex={setCheckedIndex} />
+      </div>
     </section>
+   </>
   );
 }
