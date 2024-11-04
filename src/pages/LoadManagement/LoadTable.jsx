@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import LoadModal from "./LoadModal";
+// import LoadModal from "./LoadModal";
 // import "./commission.css"
 const headItem = [
   "Pick Date",
@@ -20,8 +20,9 @@ const headItem = [
   "Branch",
 ];
 
-export default function LoadTable() {
+export default function LoadTable({ checkedIndex, setCheckedIndex}) {
   const [tData, setTdata] = useState([]);
+  // const [checkedIndex, setCheckedIndex] = useState(null);
 
   useEffect(() => {
     fetch("/load.json")
@@ -84,12 +85,15 @@ export default function LoadTable() {
                   </thead>
                   <tbody className=" divide-y tracking-[0.28px] divide-[#DFE1E6] text-sm font-normal text-[#414449]  ">
                     {tData?.map((data, idx) => (
-                      <tr key={idx}>
+                      <tr key={idx} className={`${data.Load_ID === checkedIndex && 'bg-[#F9E8E3]'}`} >
                         <td className="px-4 py-4  whitespace-nowrap">
                           <div className="inline-flex  gap-x-3">
                             <input
+                              style={{accentColor: '#FE4711'}}
+                              checked={checkedIndex === data.Load_ID}
+                              onChange={() => setCheckedIndex(checkedIndex ? null : data.Load_ID)}
                               type="checkbox"
-                              className={`text-[#FE4711] block border-[1.017px] rounded-[ 4.069px] w-4 h-4 bg-[#FFF]   border-[#DFE1E6]`}
+                              className={` block border-[1.017px] rounded-[ 4.069px] w-4 h-4    border-[#DFE1E6]`}
                             />
 
                             <span>{data.Load_ID}</span>
@@ -257,9 +261,7 @@ export default function LoadTable() {
             </button>
           </div>
         </div>
-        <div className="absolute hidden inset-0">
-        <LoadModal/>
-      </div>
+       
       </section>
     </>
   );

@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function InvoiceTable() {
   const [tData, setTdata] = useState([]);
+  const navigate = useNavigate()
 
   useEffect(() => {
     fetch("/invoice.json")
@@ -111,6 +113,7 @@ export default function InvoiceTable() {
                         <td className="px-4 py-4  whitespace-nowrap">
                           <div className="inline-flex  gap-x-3">
                             <input
+                              onClick={() => navigate('/acc-invoice')}
                               type="checkbox"
                               className="text-[#FE4711] block border-[1.017px] rounded-[ 4.069px] w-4 h-4 bg-[#FFF]   border-[#DFE1E6]"
                             />

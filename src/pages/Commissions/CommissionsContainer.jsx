@@ -3,11 +3,12 @@ import searchIcon from "../../assets/navAssests/MagnifyingGlass.svg";
 import CommissionTable from "./CommissionTable";
 import CommissionModal from "./CommissionModal";
 import img1 from "../../assets/commissionAssets/export 1.svg";
-import img2 from "../../assets/commissionAssets/edit (1) 1.svg"
-import img3 from "../../assets/commissionAssets/maps-and-flags 1.svg"
-import img4 from "../../assets/commissionAssets/money (2) 1.svg"
-import img5 from "../../assets/commissionAssets/thumbs-down- 1.svg"
-
+import img2 from "../../assets/commissionAssets/edit (1) 1.svg";
+import img3 from "../../assets/commissionAssets/maps-and-flags 1.svg";
+import img4 from "../../assets/commissionAssets/money (2) 1.svg";
+import img5 from "../../assets/commissionAssets/thumbs-down- 1.svg";
+import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 
 const butttons = [
   {
@@ -23,7 +24,7 @@ const butttons = [
     title: "Mark as Paid",
   },
   {
-   img: img5,
+    img: img5,
     title: "Mark as Not paid",
   },
   {
@@ -33,12 +34,27 @@ const butttons = [
 ];
 
 export default function CommissionsContainer() {
+  const [modal, setModal] = useState(true);
+  const [checkedIndex, setCheckedIndex] = useState(null);
+
+  useEffect(() => {
+    if (!modal) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+  }, [modal]);
+
   return (
-    <section className="pr-5 relative     ">
+    <>
+    <Helmet>
+      <title>Commissions | Cargo-Core</title>
+    </Helmet>
+      <section className="pr-5 mb-5 relative">
       <header className="my-5">
         <CommissionHeader />
       </header>
-      <main className="border border-[#E5E7E8] bg-[#FFF] rounded-[16px]">
+      <main className="border  border-[#E5E7E8] bg-[#FFF] rounded-[16px]">
         {/* header  --- */}
         <div>
           <div className="flex items-center py-4 border-b-[1.017px] border-[#DFE1E6] justify-between px-5">
@@ -50,16 +66,21 @@ export default function CommissionsContainer() {
 
             {/* middle--  */}
 
-            <div className="flex items-center gap-2">
-              {
-                butttons?.map((btn, idx) => (
-                  <button key={idx} className="text-sm font-normal flex items-center gap-2 -tracking-[0.14px] text-textColor py-[6px] px-2 ">
+            <div
+              className={`${
+                checkedIndex ? "flex" : "hidden"
+              } items-center gap-2`}
+            >
+              {butttons?.map((btn, idx) => (
+                <button
+                  onClick={idx === 0 ? () => setModal(false) : undefined}
+                  key={idx}
+                  className="text-sm font-normal flex items-center gap-2 -tracking-[0.14px] text-textColor py-[6px] px-2 "
+                >
                   <img src={btn.img} alt="" />
                   <span>{btn.title}</span>
                 </button>
-                ))
-              }
-            
+              ))}
             </div>
 
             {/* btn-- */}
@@ -75,10 +96,9 @@ export default function CommissionsContainer() {
                 <option value="no-all">No All</option>
               </select>
 
-              {/* <button className="text-sm font-normal  -tracking-[0.14px] text-textColor border rounded-[6px] py-[6px] px-3 border-[#EDF1F1]">
-       
+              <button className={` ${checkedIndex ? 'hidden': 'block'} text-sm font-normal  -tracking-[0.14px] text-textColor border rounded-[6px] py-[6px] px-3 border-[#EDF1F1]`}>
                 <span>Export</span>
-              </button> */}
+              </button>
             </div>
           </div>
           <div className="p-4 grid grid-cols-4 gap-5 items-center justify-between">
@@ -119,13 +139,19 @@ export default function CommissionsContainer() {
         </div>
 
         <div>
-          <CommissionTable />
+          <CommissionTable
+            setCheckedIndex={setCheckedIndex}
+            checkedIndex={checkedIndex}
+          />
         </div>
       </main>
 
-      <div className="absolute hidden inset-0">
-        <CommissionModal />
+      {/* overlay --- */}
+
+      <div className={`fixed ${modal ? "hidden" : "block"} bg-red-800/20 inset-0`}>
+        <CommissionModal setModal={setModal} />
       </div>
     </section>
+    </>
   );
 }

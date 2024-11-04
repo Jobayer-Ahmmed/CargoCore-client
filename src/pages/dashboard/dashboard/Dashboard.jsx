@@ -2,10 +2,15 @@ import { PiArrowUpRightThin } from "react-icons/pi";
 import chart from "../../../assets/images/chart.png";
 import WorldMap from "../../../shared/map/WorldMap";
 import MyChart from "./MyChart";
+import { Helmet } from "react-helmet-async";
 
 const Dashboard = () => {
   return (
-    <div className="w-full my-5 pr-5">
+    <>
+    <Helmet>
+      <title>Dashboard | Cargo-Core</title>
+    </Helmet>
+      <div className="w-full my-5 pr-5">
       <div className="w-full flex justify-between items-center">
         <div className="text-xl font-semibold">
           <p>Overview</p>
@@ -321,6 +326,7 @@ const Dashboard = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

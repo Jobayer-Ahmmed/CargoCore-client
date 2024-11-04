@@ -4,16 +4,29 @@ import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import searchIcon from "../../assets/navAssests/MagnifyingGlass.svg";
 import LoadTable from "./LoadTable";
 import MapModal from "../../modal/MapModal";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import LoadModal from "./LoadModal";
 
 export default function LoadManagementContainer() {
-  const [isBool, setIsBool] = useState(false)
+  const [isBool, setIsBool] = useState(true)
+  const [checkedIndex, setCheckedIndex] = useState(null);
   const showModalRef = useRef(null)
   const handleMapModal = () => {
     setIsBool(!isBool)
     console.log(isBool)
   };
+
+   useEffect(() => {
+     if (checkedIndex) {
+       document.body.style.overflow = "hidden";
+     } else {
+       document.body.style.overflow = "";
+     }
+   }, [checkedIndex]);
+
+   
   return (
+    <>
     <section className="pr-5 relative">
       <header>
         <LoadHeader />
@@ -140,7 +153,7 @@ export default function LoadManagementContainer() {
             </div>
           </div>
           <TabPanel>
-            <LoadTable />
+            <LoadTable  setCheckedIndex={setCheckedIndex} checkedIndex={checkedIndex} />
           </TabPanel>
           <TabPanel>
             <LoadTable />
@@ -157,9 +170,13 @@ export default function LoadManagementContainer() {
         </main>
       </Tabs>
 
+      <div className={`fixed ${checkedIndex ? "flex":"hidden" } items-center justify-center bg-red-800/20 inset-0`}>
+        <LoadModal setCheckedIndex={setCheckedIndex} />
+        </div>
       <div ref={showModalRef} className={`absolute rounded-2xl shadow-2xl top-0 right-0 bg-slate-300 ${isBool?"hidden":""}`}>
         <MapModal fn={handleMapModal}/>
       </div>
     </section>
+   </>
   );
 }

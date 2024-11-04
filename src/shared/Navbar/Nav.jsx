@@ -1,21 +1,37 @@
-import logo from "../../assets/logo/logo2.png";
-// import logo from "../../assets/logo/logo.svg";``
+import { useLocation } from "react-router-dom";
+// import logo from "../../assets/logo/logo2.png";
+import logo from "../../assets/logo/logo.svg";
 import searchIcon from "../../assets/navAssests/MagnifyingGlass.svg";
 import avatar from "../../assets/navAssests/avatar.svg";
 
 export default function Nav() {
+
+  const location = useLocation();
+
+  const pageTitles = {
+    '/': 'Welcome Back, Alesia',
+    '/commissions': 'Commissions',
+    '/account': 'Account',
+    '/load-management': 'Load Management',
+    '/acc-invoice' : 'Account',
+    '/rate-calculator':'Commissions'
+  };
+  
+  const pageTitle = pageTitles[location.pathname] || '';
+
+
   return (
     <>
       <nav className="flex  items-center bg-[#F8F9FA] border-b border-[#E5E7E8]">
         {/* logo */}
-        <div className="">
+        <div className="py-10 px-11">
           <img src={logo} alt="" />
         </div>
         {/* right side  */}
         <div className="flex items-center justify-between px-6 flex-1">
           {/* title  */}
           <h2 className="text-2xl leading-none font-semibold tracking-[0.48px]  text-textColor ">
-            Account
+            {pageTitle}
           </h2>
 
           {/* right side content-- */}

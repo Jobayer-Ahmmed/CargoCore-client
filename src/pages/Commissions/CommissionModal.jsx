@@ -1,4 +1,4 @@
-export default function CommissionModal() {
+export default function CommissionModal({setModal}) {
   return (
     <>
       <div className="  flex justify-center">
@@ -15,7 +15,7 @@ export default function CommissionModal() {
                 <h2 className="text-base font-semibold text-textColor tracking-[0.32px] whitespace-nowrap">
                   Commission Report Criteria
                 </h2>
-                <button>
+                <button onClick={() => setModal(true) } >
                   <svg
                     width="16"
                     height="16"
@@ -136,6 +136,7 @@ export default function CommissionModal() {
 
                   <div className="flex gap-[13px]">
                     <button
+                    onClick={() => setModal(true) }
                       type="button"
                       className="text-sm flex-grow font-medium text-[#808990] py-2 px-4 rounded-[8px] border border-[#CDD1D4]"
                     >

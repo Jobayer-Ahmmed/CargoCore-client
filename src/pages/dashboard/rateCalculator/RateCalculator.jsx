@@ -4,10 +4,15 @@ import { RxCross2 } from "react-icons/rx";
 import { FiPlus } from "react-icons/fi";
 import { BsArrowReturnLeft, BsArrowClockwise } from "react-icons/bs";
 import rateGraph from "../../../assets/images/rate_graph.png";
+import { Helmet } from "react-helmet-async";
 
 const RateCalculator = () => {
   return (
-    <div className="w-full my-5 pr-5">
+    <>
+    <Helmet>
+      <title>Rate-Calculator | Cargo-Core</title>
+    </Helmet>
+        <div className="w-full my-5 pr-5">
       <div className="p-5 border-2 border-borderColor rounded-2xl">
         <p className="flex gap-2 items-center">
           <IoIosArrowDown />{" "}
@@ -141,11 +146,12 @@ const RateCalculator = () => {
 
         <div className="mt-8 flex justify-center items-center text-white">
           <button className="flex items-center gap-2 bg-primaryColor px-6 py-3 rounded-xl">
-            <BsArrowClockwise /> <span>ojojojoj</span>
+            <BsArrowClockwise /> <span>Recalculate</span>
           </button>
         </div>
       </div>
     </div>
+    </>
   );
 };
 
