@@ -5,6 +5,7 @@ import {
 import Dashboard from "../pages/dashboard/dashboard/Dashboard";
 import DashBoardLayout from "../layout/DashBoardLayout";
 import RateCalculator from "../pages/dashboard/rateCalculator/RateCalculator";
+import MapModal from "../modal/MapModal";
 
 
 
@@ -20,6 +21,10 @@ const router = createBrowserRouter ([
             {
                 path: '/rate-calculator',
                 element: <RateCalculator/>
+            },
+            {
+                path: '/map-modal',
+                element: <MapModal/>
             }
         ]
     }

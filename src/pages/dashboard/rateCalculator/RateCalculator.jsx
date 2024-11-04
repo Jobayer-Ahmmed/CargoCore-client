@@ -4,7 +4,6 @@ import { RxCross2 } from "react-icons/rx";
 import { FiPlus } from "react-icons/fi";
 import { BsArrowReturnLeft, BsArrowClockwise } from "react-icons/bs";
 import rateGraph from "../../../assets/images/rate_graph.png";
-import MapModal from "../../../modal/MapModal";
 
 const RateCalculator = () => {
   return (
@@ -146,10 +145,6 @@ const RateCalculator = () => {
           </button>
         </div>
       </div>
-
-
-      {/* have to delete modal */}
-      <MapModal/>
     </div>
   );
 };
