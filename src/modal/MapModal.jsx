@@ -1,13 +1,15 @@
 import { useRef, useState, useEffect } from "react";
 import gsap from "gsap";
-import {IoCheckmarkCircle} from "react-icons/io5"
+import { IoCheckmarkCircle } from "react-icons/io5";
 import WorldMap from "../shared/map/WorldMap";
 
-const MapModal = () => {
+const MapModal = ({fn}) => {
   const [activeButton, setActiveButton] = useState(false);
   const mapModalRef = useRef(null);
   const btnParentRef = useRef(null);
   const detailsRef = useRef(null);
+
+  console.log(fn)
 
   useEffect(() => {
     // Use gsap.to to toggle the x position of the button based on activeButton state
@@ -17,17 +19,15 @@ const MapModal = () => {
     });
   }, [activeButton]);
 
-  const handleMapModal = () => {
-    mapModalRef.current.classList.toggle("hidden");
-  };
+
 
   return (
     <div
       ref={mapModalRef}
-      className="relative  w-1/2 h-[95vh] border-2 border-borderColor py-10 rounded-2xl"
+      className="  border-2 border-borderColor pt-10 rounded-2xl"
     >
       <button
-        onClick={handleMapModal}
+        onClick={fn}
         className="absolute top-2 right-4 text-xl"
       >
         ✕
@@ -50,30 +50,36 @@ const MapModal = () => {
           </div>
           <button
             ref={detailsRef}
-            className={`details-btn w-24 py-2 rounded-xl font-semibold bg-primaryColor ${
+            className={`details-btn w-24 py-2 text-white rounded-xl font-medium bg-primaryColor ${
               activeButton ? "active" : "details"
             }`}
             onClick={() => setActiveButton(!activeButton)}
           >
-            {activeButton? <>Tracking</>:<>Details</>}
+            {activeButton ? <>Tracking</> : <>Details</>}
           </button>
         </div>
       </div>
 
       <div className=" px-6 mt-5 flex justify-center items-center gap-1">
         <div>
-          <IoCheckmarkCircle className="text-3xl text-primaryColor"/>
+          <IoCheckmarkCircle className="text-3xl text-primaryColor" />
         </div>
         <div className="w-[70px] h-[2px] bg-primaryColor"></div>
         <div>
-          <IoCheckmarkCircle className="text-3xl text-primaryColor"/>
+          <IoCheckmarkCircle className="text-3xl text-primaryColor" />
         </div>
         <div className="w-[70px] h-[2px] bg-primaryColor"></div>
-        <div className="w-[25px] h-[25px] mx-1 border-2 border-borderColor rounded-full flex justify-center items-center"><small className="text-[10px]">03</small></div>
+        <div className="w-[25px] h-[25px] mx-1 border-2 border-borderColor rounded-full flex justify-center items-center">
+          <small className="text-[10px]">03</small>
+        </div>
         <div className="w-[70px] h-[2px] bg-borderColor"></div>
-        <div className="w-[25px] h-[25px] mx-1 border-2 border-borderColor rounded-full flex justify-center items-center"><small className="text-[10px]">04</small></div>
+        <div className="w-[25px] h-[25px] mx-1 border-2 border-borderColor rounded-full flex justify-center items-center">
+          <small className="text-[10px]">04</small>
+        </div>
         <div className="w-[70px] h-[2px] bg-borderColor"></div>
-        <div className="w-[25px] h-[25px] ml-1 border-2 border-borderColor rounded-full flex justify-center items-center"><small className="text-[10px]">05</small></div>
+        <div className="w-[25px] h-[25px] ml-1 border-2 border-borderColor rounded-full flex justify-center items-center">
+          <small className="text-[10px]">05</small>
+        </div>
       </div>
       <div className=" px-6 mt-3 mb-8 flex justify-between text-[14px]">
         <p>Booking</p>
@@ -82,7 +88,9 @@ const MapModal = () => {
         <p>Port Unloading</p>
         <p>Delivary</p>
       </div>
-      <WorldMap/>
+      <div className="h-[80vh]">
+        <WorldMap />
+      </div>
     </div>
   );
 };

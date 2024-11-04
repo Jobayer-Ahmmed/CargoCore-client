@@ -3,10 +3,18 @@ import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 
 import searchIcon from "../../assets/navAssests/MagnifyingGlass.svg";
 import LoadTable from "./LoadTable";
+import MapModal from "../../modal/MapModal";
+import { useRef, useState } from "react";
 
 export default function LoadManagementContainer() {
+  const [isBool, setIsBool] = useState(false)
+  const showModalRef = useRef(null)
+  const handleMapModal = () => {
+    setIsBool(!isBool)
+    console.log(isBool)
+  };
   return (
-    <section className="pr-5">
+    <section className="pr-5 relative">
       <header>
         <LoadHeader />
       </header>
@@ -39,7 +47,7 @@ export default function LoadManagementContainer() {
                 <Tab>Misc.</Tab>
                 <Tab>All Live Loads</Tab>
               </TabList>
-              <button>
+              <button onClick={handleMapModal}>
                 <svg
                   width="53"
                   height="53"
@@ -148,6 +156,10 @@ export default function LoadManagementContainer() {
           </TabPanel>
         </main>
       </Tabs>
+
+      <div ref={showModalRef} className={`absolute rounded-2xl shadow-2xl top-0 right-0 bg-slate-300 ${isBool?"hidden":""}`}>
+        <MapModal fn={handleMapModal}/>
+      </div>
     </section>
   );
 }
