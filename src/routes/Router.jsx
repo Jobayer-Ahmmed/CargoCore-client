@@ -12,6 +12,7 @@ import Dashboard from "../pages/dashboard/dashboard/Dashboard";
 import DashBoardLayout from "../layout/DashBoardLayout";
 import RateCalculator from "../pages/dashboard/rateCalculator/RateCalculator";
 import AccManagementInvoice from "../pages/AccountManagement/AccManagementInvoice";
+import Error from "../shared/Error/Error";
 
 
 
@@ -19,6 +20,7 @@ const router = createBrowserRouter ([
     {
         path:'/',
         element:<DashBoardLayout/>,
+        errorElement:<Error/>,
         children: [
             {
                 path:'/',
