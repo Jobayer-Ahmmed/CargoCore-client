@@ -1,8 +1,9 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 /* eslint-disable react/prop-types */
 export default function ReconcileHeader({ tabIndex }) {
   const location = useLocation();
+  const navigate = useNavigate();
 
   return (
     <>
@@ -11,7 +12,7 @@ export default function ReconcileHeader({ tabIndex }) {
 
         <div className="text-2xl flex items-center gap-5 font-semibold text-textColor tracking-[0.48px]">
           {location.pathname === "/acc-invoice" && (
-            <Link to={"/accounting"}>
+            <button onClick={() => navigate(-1) }>
               <svg
                 width="24"
                 height="25"
@@ -24,7 +25,7 @@ export default function ReconcileHeader({ tabIndex }) {
                   fill="black"
                 />
               </svg>
-            </Link>
+            </button>
           )}
           <span>Accounts management</span>
         </div>

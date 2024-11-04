@@ -4,7 +4,6 @@ import { RxCross2 } from "react-icons/rx";
 import { FiPlus } from "react-icons/fi";
 import { BsArrowReturnLeft, BsArrowClockwise } from "react-icons/bs";
 import rateGraph from "../../../assets/images/rate_graph.png";
-import MapModal from "../../../modal/MapModal";
 import { Helmet } from "react-helmet-async";
 
 const RateCalculator = () => {
@@ -147,14 +146,10 @@ const RateCalculator = () => {
 
         <div className="mt-8 flex justify-center items-center text-white">
           <button className="flex items-center gap-2 bg-primaryColor px-6 py-3 rounded-xl">
-            <BsArrowClockwise /> <span>ojojojoj</span>
+            <BsArrowClockwise /> <span>Recalculate</span>
           </button>
         </div>
       </div>
-
-
-      {/* have to delete modal */}
-      <MapModal/>
     </div>
     </>
   );

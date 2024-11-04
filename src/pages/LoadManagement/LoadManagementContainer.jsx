@@ -3,28 +3,31 @@ import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 
 import searchIcon from "../../assets/navAssests/MagnifyingGlass.svg";
 import LoadTable from "./LoadTable";
-import { useEffect, useState } from "react";
+import MapModal from "../../modal/MapModal";
+import { useEffect, useRef, useState } from "react";
 import LoadModal from "./LoadModal";
-import { Helmet } from "react-helmet-async";
 
 export default function LoadManagementContainer() {
-  // const [modal, setModal] = useState(true);
+  const [isBool, setIsBool] = useState(true)
   const [checkedIndex, setCheckedIndex] = useState(null);
- 
+  const showModalRef = useRef(null)
+  const handleMapModal = () => {
+    setIsBool(!isBool)
+    console.log(isBool)
+  };
 
-  useEffect(() => {
-    if (checkedIndex) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-  }, [checkedIndex]);
+   useEffect(() => {
+     if (checkedIndex) {
+       document.body.style.overflow = "hidden";
+     } else {
+       document.body.style.overflow = "";
+     }
+   }, [checkedIndex]);
+
+   
   return (
-   <>
-   <Helmet>
-    <title>Load | Cargo-Core</title>
-   </Helmet>
-     <section className="pr-5 relative mb-5 ">
+    <>
+    <section className="pr-5 relative">
       <header>
         <LoadHeader />
       </header>
@@ -57,7 +60,7 @@ export default function LoadManagementContainer() {
                 <Tab>Misc.</Tab>
                 <Tab>All Live Loads</Tab>
               </TabList>
-              <button>
+              <button onClick={handleMapModal}>
                 <svg
                   width="53"
                   height="53"
@@ -169,6 +172,9 @@ export default function LoadManagementContainer() {
 
       <div className={`fixed ${checkedIndex ? "flex":"hidden" } items-center justify-center bg-red-800/20 inset-0`}>
         <LoadModal setCheckedIndex={setCheckedIndex} />
+        </div>
+      <div ref={showModalRef} className={`absolute rounded-2xl shadow-2xl top-0 right-0 bg-slate-300 ${isBool?"hidden":""}`}>
+        <MapModal fn={handleMapModal}/>
       </div>
     </section>
    </>

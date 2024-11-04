@@ -1,16 +1,13 @@
 import { NavLink } from "react-router-dom";
 import "./sidebar.css";
 import { IoIosArrowDown } from "react-icons/io";
-import { useRef } from "react";
-
-
-
-
-
+import { useRef, useState } from "react";
 const Sidebar = () => {
+  const [isLoad, setIsLoad] = useState(false)
   const loadRef = useRef(null)
   const handleLoad=()=>{
-    loadRef.current.classList.toggle("hidden")
+    setIsLoad(!isLoad)
+    // loadRef.current.classList.toggle("hidden")
   }
   return (
     <aside className="w-[260px] h-[100vh] border-r border-[#E5E7E8] p-5 font-medium">
@@ -43,7 +40,7 @@ const Sidebar = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink onClick={handleLoad} to={``} className="first-navlink" aria-expanded={!loadRef.current?.classList.contains("hidden")}>
+            <NavLink onClick={handleLoad} to={`/load-management`} className="first-navlink" aria-expanded={!loadRef.current?.classList.contains("hidden")}>
               <p>
                 {" "}
                 <svg
@@ -73,7 +70,7 @@ const Sidebar = () => {
               </p>
               <IoIosArrowDown />
             </NavLink>
-            <ul ref={loadRef} className="ml-10 mt-1 mb-3 flex flex-col gap-3">
+            <ul ref={loadRef} className={`ml-10 mt-1 mb-3  flex-col gap-3  ${isLoad ? 'flex' : 'hidden'}`}>
                 <li><NavLink to="#" className={({isActive})=>isActive?"text-primaryColor":""}>View Loads</NavLink> </li>
                 <li><NavLink to="/a" >Search Loads</NavLink> </li>
                 <li><NavLink to="/b">Build a Load</NavLink> </li>
@@ -256,7 +253,7 @@ const Sidebar = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to={``} className="first-navlink">
+            <NavLink to={`/rate-calculator`} className="first-navlink">
               <p>
                 <svg
                   width="16"
@@ -291,7 +288,7 @@ const Sidebar = () => {
             
           </li>
           <li>
-            <NavLink to={``} className="flex items-center pl-4 pr-4 pt-4 pb-4 gap-[6px]">
+            <NavLink to={`/account`} className="flex items-center pl-4 pr-4 pt-4 pb-4 gap-[6px]">
               <svg
                 width="20"
                 height="24"
@@ -324,7 +321,7 @@ const Sidebar = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to={``} className="first-navlink">
+            <NavLink to={`/commissions`} className="first-navlink">
               <p>
                 <svg
                   width="16"
